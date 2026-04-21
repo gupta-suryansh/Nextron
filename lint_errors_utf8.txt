@@ -1,0 +1,52 @@
+﻿
+E:\project\index.js
+  1:3  error  Parsing error: Unexpected token !
+
+E:\project\src\components\CheckoutModal.jsx
+  45:70  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  43 |                     <h2 className="text-3xl font-black mb-4">ORDER PLACED!</h2>
+  44 |                     <p className="text-gray-400 mb-2">Your order has been successfully placed.</p>
+> 45 |                     <p className="text-sm text-gray-500">Order ID: #{Date.now()}</p>
+     |                                                                      ^^^^^^^^^^ Cannot call impure function
+  46 |                 </div>
+  47 |             </div>
+  48 |         );  react-hooks/purity
+
+E:\project\src\components\Hero.jsx
+  6:13  error  'navigateToCategory' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\project\src\components\Navbar.jsx
+   8:23  error  'isAdminMode' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u     no-unused-vars
+   8:36  error  'setIsAdminMode' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  11:11  error  'navigate' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u        no-unused-vars
+
+E:\project\src\context\StoreContext.jsx
+   7:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-refresh/only-export-components
+  26:33  error  'categoryId' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  65:17  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  63 |     const placeOrder = (orderData) => {
+  64 |         const newOrder = {
+> 65 |             id: Date.now(),
+     |                 ^^^^^^^^^^ Cannot call impure function
+  66 |             items: [...cart],
+  67 |             total: cartTotal,
+  68 |             customerInfo: orderData,  react-hooks/purity
+
+E:\project\src\pages\AdminPanel.jsx
+  6:23  error  'setProducts' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  6:50  error  'isAdminMode' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\project\src\pages\MysteryDrop.jsx
+  27:8  warning  React Hook useEffect has a missing dependency: 'targetDate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\project\src\pages\ProductDetails.jsx
+  1:17  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+Γ£û 13 problems (12 errors, 1 warning)
+
