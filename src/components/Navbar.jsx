@@ -34,7 +34,7 @@ const Navbar = () => {
                     <div className="flex items-center space-x-6">
                         {user ? (
                             <div className="flex items-center space-x-4">
-                                <span className="text-sm font-mono text-gray-400">Hi, {user.name.split(' ')[0]}</span>
+                                <Link to="/profile" className="text-sm font-mono text-gray-400 hover:text-[var(--accent)] transition-colors">Hi, {user.name.split(' ')[0]}</Link>
                                 <button onClick={logout} className="text-xs font-mono border border-[var(--border)] px-3 py-1 hover:border-[var(--accent)] rounded transition-colors">
                                     LOGOUT
                                 </button>

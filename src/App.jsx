@@ -15,6 +15,7 @@ import Signup from './pages/Auth/Signup';
 import ProductDetails from './pages/ProductDetails';
 import Contact from './pages/Contact';
 import MysteryDrop from './pages/MysteryDrop';
+import Profile from './pages/Profile';
 import Footer from './components/Footer';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/new-arrivals" element={<MysteryDrop />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
 
       {/* Global Overlays */}
