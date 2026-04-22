@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useStore } from '../../context/StoreContext';
+import { validateEmailDomain } from '../../utils/emailValidator';
 
 const Signup = () => {
     const [formData, setFormData] = useState({ name: '', email: '', password: '', confirmPassword: '' });
@@ -8,15 +9,21 @@ const Signup = () => {
     const navigate = useNavigate();
     const [error, setError] = useState('');
 
+
     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setError('');
         if (formData.password !== formData.confirmPassword) {
             setError('Passwords do not match');
             return;
         }
-        // Mock signup - just logging in
+        const domainCheck = validateEmailDomain(formData.email);
+        if (!domainCheck.valid) {
+            setError(domainCheck.error);
+            return;
+        }
         if (login(formData.email, formData.password, formData.name)) {
             navigate('/');
         }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useStore } from '../../context/StoreContext';
+import { validateEmailDomain } from '../../utils/emailValidator';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -9,8 +10,15 @@ const Login = () => {
     const navigate = useNavigate();
     const [error, setError] = useState('');
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        setError('');
+        const domainCheck = validateEmailDomain(email);
+        if (!domainCheck.valid) {
+            setError(domainCheck.error);
+            return;
+        }
         if (login(email, password)) {
             navigate('/');
         } else {
