@@ -58,7 +58,7 @@ const Products = () => {
                         <select
                             value={filter}
                             onChange={(e) => handleFilterChange(e.target.value)}
-                            className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
+                            className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                         >
                             <option value="all">ALL CATEGORIES</option>
                             {CATEGORIES.map(cat => (
@@ -71,7 +71,7 @@ const Products = () => {
                         <select
                             value={sortBy}
                             onChange={(e) => setSortBy(e.target.value)}
-                            className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
+                            className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                         >
                             <option value="featured">FEATURED</option>
                             <option value="price-low">PRICE: LOW TO HIGH</option>

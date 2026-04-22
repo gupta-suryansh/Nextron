@@ -32,7 +32,7 @@ const Login = () => {
                 <div className="absolute top-20 left-10 w-96 h-96 bg-[var(--accent)] rounded-full blur-[120px]"></div>
             </div>
 
-            <div className="w-full max-w-md bg-[#111] border border-[var(--border)] rounded-3xl p-8 md:p-12 relative z-10">
+            <div className="w-full max-w-md bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8 md:p-12 relative z-10">
                 <h2 className="text-3xl font-black mb-2 text-center">WELCOME <span className="text-[var(--accent)]">BACK</span></h2>
                 <p className="text-gray-400 text-center mb-8 font-mono text-sm">Log in to access your account</p>
 
@@ -45,8 +45,7 @@ const Login = () => {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
-                            placeholder="user@nexus.com"
+                            className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                             required
                         />
                     </div>
@@ -56,8 +55,7 @@ const Login = () => {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
-                            placeholder="••••••••"
+                            className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                             required
                         />
                     </div>

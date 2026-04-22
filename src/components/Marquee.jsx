@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Marquee = () => (
-    <div className="border-y border-[var(--border)] py-6 overflow-hidden bg-[#111]">
+    <div className="border-y border-[var(--border)] py-6 overflow-hidden bg-[var(--surface)]">
         <div className="flex whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
                 <div key={i} className="marquee flex items-center space-x-12 font-mono text-sm text-gray-400">

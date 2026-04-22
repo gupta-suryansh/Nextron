@@ -65,8 +65,8 @@ const CheckoutModal = () => {
                     <div className="flex items-center justify-between mb-8">
                         {[1, 2, 3].map(num => (
                             <React.Fragment key={num}>
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${step >= num ? 'bg-[var(--accent)] text-[var(--primary)]' : 'bg-[#111] border border-[var(--border)]'}`}>{num}</div>
-                                {num < 3 && <div className={`flex-1 h-1 mx-2 ${step > num ? 'bg-[var(--accent)]' : 'bg-[#111]'}`}></div>}
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${step >= num ? 'bg-[var(--accent)] text-[var(--primary)]' : 'bg-[var(--surface)] border border-[var(--border)]'}`}>{num}</div>
+                                {num < 3 && <div className={`flex-1 h-1 mx-2 ${step > num ? 'bg-[var(--accent)]' : 'bg-[var(--surface)]'}`}></div>}
                             </React.Fragment>
                         ))}
                     </div>
@@ -75,19 +75,19 @@ const CheckoutModal = () => {
                         {step === 1 && (
                             <div className="space-y-4">
                                 <h3 className="text-xl font-bold mb-4">Shipping Information</h3>
-                                <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
                                 <div className="grid md:grid-cols-2 gap-4">
-                                    <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
-                                    <input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
                                 </div>
-                                <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
                                 <div className="grid md:grid-cols-2 gap-4">
-                                    <input type="text" name="city" placeholder="City" value={formData.city} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
-                                    <input type="text" name="state" placeholder="State" value={formData.state} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="text" name="city" placeholder="City" value={formData.city} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="text" name="state" placeholder="State" value={formData.state} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4">
-                                    <input type="text" name="zipCode" placeholder="ZIP Code" value={formData.zipCode} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
-                                    <input type="text" name="country" placeholder="Country" value={formData.country} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="text" name="zipCode" placeholder="ZIP Code" value={formData.zipCode} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="text" name="country" placeholder="Country" value={formData.country} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
                                 </div>
                             </div>
                         )}
@@ -95,7 +95,7 @@ const CheckoutModal = () => {
                         {step === 2 && (
                             <div>
                                 <h3 className="text-xl font-bold mb-4">Shipping Method</h3>
-                                <label className="flex items-center justify-between p-4 bg-[#111] border-2 border-[var(--accent)] rounded-lg mb-4">
+                                <label className="flex items-center justify-between p-4 bg-[var(--surface)] border-2 border-[var(--accent)] rounded-lg mb-4">
                                     <div className="flex items-center gap-4">
                                         <input type="radio" name="shipping" defaultChecked className="w-5 h-5" />
                                         <div><div className="font-bold">Standard Shipping</div><div className="text-sm text-gray-500">5-7 business days</div></div>
@@ -108,11 +108,11 @@ const CheckoutModal = () => {
                         {step === 3 && (
                             <div className="space-y-4">
                                 <h3 className="text-xl font-bold mb-4">Payment Information</h3>
-                                <input type="text" name="cardNumber" placeholder="Card Number" value={formData.cardNumber} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
-                                <input type="text" name="cardName" placeholder="Cardholder Name" value={formData.cardName} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                <input type="text" name="cardNumber" placeholder="Card Number" value={formData.cardNumber} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                <input type="text" name="cardName" placeholder="Cardholder Name" value={formData.cardName} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
                                 <div className="grid md:grid-cols-2 gap-4">
-                                    <input type="text" name="expiryDate" placeholder="MM/YY" value={formData.expiryDate} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
-                                    <input type="text" name="cvv" placeholder="CVV" value={formData.cvv} onChange={handleInputChange} className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="text" name="expiryDate" placeholder="MM/YY" value={formData.expiryDate} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
+                                    <input type="text" name="cvv" placeholder="CVV" value={formData.cvv} onChange={handleInputChange} className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3" required />
                                 </div>
                             </div>
                         )}

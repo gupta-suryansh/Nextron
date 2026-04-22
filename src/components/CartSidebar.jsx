@@ -30,7 +30,7 @@ const CartSidebar = () => {
                         <>
                             <div className="space-y-6 mb-6">
                                 {cart.map(item => (
-                                    <div key={item.id} className="flex gap-4 p-4 bg-[#111] rounded-xl border border-[var(--border)]">
+                                    <div key={item.id} className="flex gap-4 p-4 bg-[var(--surface)] rounded-xl border border-[var(--border)]">
                                         <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-lg" />
                                         <div className="flex-1">
                                             <h3 className="font-bold mb-1">{item.name}</h3>

@@ -28,7 +28,7 @@ const AdminPanel = () => {
                     <button onClick={() => setActiveTab('orders')} className={`px-6 py-3 font-mono text-sm ${activeTab === 'orders' ? 'border-b-2 border-[var(--accent)] text-[var(--accent)]' : 'text-gray-500'}`}>ORDERS ({orders.length})</button>
                 </div>
 
-                <div className="bg-[#111] border border-[var(--border)] rounded-2xl p-6 min-h-[400px]">
+                <div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 min-h-[400px]">
                     {activeTab === 'products' ? (
                         <div>
                             <div className="flex justify-between items-center mb-6">
@@ -48,7 +48,7 @@ const AdminPanel = () => {
                                     </thead>
                                     <tbody className="divide-y divide-[var(--border)]">
                                         {products.map(product => (
-                                            <tr key={product.id} className="hover:bg-[#1a1a1a] transition-colors">
+                                            <tr key={product.id} className="hover:bg-[var(--surface)] transition-colors">
                                                 <td className="py-4 flex items-center gap-4">
                                                     <img src={product.image} alt="" className="w-10 h-10 rounded object-cover" />
                                                     {product.name}

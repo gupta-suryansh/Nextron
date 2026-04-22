@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PRODUCTS_DATA } from '../data';
 
@@ -20,6 +20,16 @@ export const StoreProvider = ({ children }) => {
 
     // Auth State (Mock)
     const [user, setUser] = useState(null); // { name, email, role }
+
+    // Theme State
+    const [theme, setTheme] = useState(() => localStorage.getItem('nexus_theme') || 'dark');
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('nexus_theme', theme);
+    }, [theme]);
+
+    const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
 
     const navigate = useNavigate();
 
@@ -105,6 +115,7 @@ export const StoreProvider = ({ children }) => {
         <StoreContext.Provider value={{
             cart, wishlist, orders, products,
             isCartOpen, isWishlistOpen, isCheckoutOpen, isAdminMode, user,
+            theme, toggleTheme,
             setProducts, addToCart, removeFromCart, updateQuantity,
             addToWishlist, removeFromWishlist, setIsCartOpen, setIsWishlistOpen,
             setIsCheckoutOpen, setIsAdminMode, cartTotal, cartCount, placeOrder,

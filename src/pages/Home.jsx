@@ -47,7 +47,7 @@ const Home = () => {
             </div>
 
             {/* Featured Products Section */}
-            <div className="px-6 py-20 bg-[#0F0F0F]" id="featured-products">
+            <div className="px-6 py-20 bg-[var(--surface)]" id="featured-products">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <h2 className="text-4xl md:text-5xl font-black mb-4">
@@ -81,7 +81,7 @@ const Home = () => {
                                 <select
                                     value={filter}
                                     onChange={(e) => setFilter(e.target.value)}
-                                    className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
+                                    className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                                 >
                                     <option value="all">ALL CATEGORIES</option>
                                     {CATEGORIES.map(cat => (
@@ -94,7 +94,7 @@ const Home = () => {
                                 <select
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value)}
-                                    className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
+                                    className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                                 >
                                     <option value="featured">FEATURED</option>
                                     <option value="price-low">PRICE: LOW TO HIGH</option>

@@ -35,7 +35,7 @@ const CategoryCard = ({ category }) => {
         <div
             ref={cardRef}
             onClick={() => navigateToCategory(category.id)}
-            className="category-card cursor-pointer bg-[#111] border-2 border-[var(--border)] rounded-3xl overflow-hidden group"
+            className="category-card cursor-pointer bg-[var(--surface)] border-2 border-[var(--border)] rounded-3xl overflow-hidden group"
         >
             <div className="aspect-[4/3] overflow-hidden relative">
                 <img

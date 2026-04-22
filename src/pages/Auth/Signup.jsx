@@ -35,7 +35,7 @@ const Signup = () => {
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-[var(--accent-2)] rounded-full blur-[120px]"></div>
             </div>
 
-            <div className="w-full max-w-md bg-[#111] border border-[var(--border)] rounded-3xl p-8 md:p-12 relative z-10">
+            <div className="w-full max-w-md bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8 md:p-12 relative z-10">
                 <h2 className="text-3xl font-black mb-2 text-center">CREATE <span className="text-[var(--accent)]">ACCOUNT</span></h2>
                 <p className="text-gray-400 text-center mb-8 font-mono text-sm">Join the future of tech</p>
 
@@ -49,7 +49,7 @@ const Signup = () => {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
+                            className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                             placeholder="John Doe"
                             required
                         />

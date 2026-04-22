@@ -28,7 +28,7 @@ const ProductDetails = () => {
         <div className="min-h-screen px-6 py-32">
             <div className="max-w-7xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-12 mb-20">
-                    <div className="aspect-square bg-[#1a1a1a] rounded-3xl overflow-hidden relative">
+                    <div className="aspect-square bg-[var(--surface)] rounded-3xl overflow-hidden relative">
                         <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                     </div>
 

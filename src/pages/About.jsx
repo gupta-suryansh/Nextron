@@ -12,15 +12,15 @@ const About = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-center">
-                    <div className="p-8 border border-[var(--border)] rounded-2xl bg-[#111]">
+                    <div className="p-8 border border-[var(--border)] rounded-2xl bg-[var(--surface)]">
                         <div className="text-4xl font-bold text-[var(--accent)] mb-2">2020</div>
                         <div className="text-gray-500 font-mono text-sm">ESTABLISHED</div>
                     </div>
-                    <div className="p-8 border border-[var(--border)] rounded-2xl bg-[#111]">
+                    <div className="p-8 border border-[var(--border)] rounded-2xl bg-[var(--surface)]">
                         <div className="text-4xl font-bold text-[var(--accent)] mb-2">50+</div>
                         <div className="text-gray-500 font-mono text-sm">COUNTRIES</div>
                     </div>
-                    <div className="p-8 border border-[var(--border)] rounded-2xl bg-[#111]">
+                    <div className="p-8 border border-[var(--border)] rounded-2xl bg-[var(--surface)]">
                         <div className="text-4xl font-bold text-[var(--accent)] mb-2">24/7</div>
                         <div className="text-gray-500 font-mono text-sm">SUPPORT</div>
                     </div>

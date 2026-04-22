@@ -55,7 +55,7 @@ const MysteryDrop = () => {
                 {/* Mystery Product Silhouette */}
                 <div className="relative w-80 h-80 mx-auto mb-16">
                     <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent)] to-[var(--accent-2)] rounded-full blur-[100px] opacity-20"></div>
-                    <div className="w-full h-full bg-[#111] rounded-3xl border border-[var(--border)] flex items-center justify-center relative overflow-hidden group">
+                    <div className="w-full h-full bg-[var(--surface)] rounded-3xl border border-[var(--border)] flex items-center justify-center relative overflow-hidden group">
                         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80')] bg-cover bg-center opacity-50 blur-xl blur-reveal transition-all duration-1000 group-hover:blur-lg scale-110"></div>
                         <div className="absolute inset-0 flex items-center justify-center">
                             <span className="text-6xl text-white font-black opacity-20">?</span>
@@ -66,8 +66,8 @@ const MysteryDrop = () => {
                 {/* Countdown Timer */}
                 <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto">
                     {Object.entries(timeLeft).map(([unit, value]) => (
-                        <div key={unit} className="bg-[#111] border border-[var(--border)] rounded-2xl p-4 md:p-6">
-                            <div className="text-3xl md:text-5xl font-mono font-bold text-white mb-2">
+                        <div key={unit} className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-4 md:p-6">
+                            <div className="text-3xl md:text-5xl font-mono font-bold text-[var(--text)] mb-2">
                                 {value.toString().padStart(2, '0')}
                             </div>
                             <div className="text-xs text-gray-500 uppercase tracking-widest">{unit}</div>

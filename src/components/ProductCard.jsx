@@ -33,8 +33,8 @@ const ProductCard = ({ product }) => {
     }, []);
 
     return (
-        <div ref={cardRef} className="product-card bg-[#111] border border-[var(--border)] rounded-2xl overflow-hidden">
-            <div className="aspect-square bg-[#1a1a1a] relative overflow-hidden group">
+        <div ref={cardRef} className="product-card bg-[var(--surface)] border border-[var(--border)] rounded-2xl overflow-hidden">
+            <div className="aspect-square bg-[var(--primary)] relative overflow-hidden group">
                 <Link to={`/product/${product.id}`}>
                     <img src={product.image} alt={product.name} className="product-image w-full h-full object-cover cursor-pointer" />
                 </Link>
@@ -42,7 +42,7 @@ const ProductCard = ({ product }) => {
                     onClick={() => addToWishlist(product)}
                     className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[var(--primary)] border border-[var(--border)] flex items-center justify-center hover:border-[var(--accent-2)] transition-colors"
                 >
-                    <svg className={`w-5 h-5 ${isInWishlist ? 'fill-[var(--accent-2)] stroke-[var(--accent-2)]' : 'stroke-white'}`} fill="none" viewBox="0 0 24 24">
+                    <svg className={`w-5 h-5 ${isInWishlist ? 'fill-[var(--accent-2)] stroke-[var(--accent-2)]' : 'stroke-[var(--text)]'}`} fill="none" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
                 </button>

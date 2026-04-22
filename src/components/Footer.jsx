@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="bg-[#050505] border-t border-[var(--border)] pt-20 pb-10">
+        <footer className="bg-[var(--surface)] border-t border-[var(--border)] pt-20 pb-10">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
                     <Link to="/" className="text-3xl font-black tracking-tighter mb-6 block">
@@ -51,7 +51,7 @@ const Footer = () => {
                         <input
                             type="email"
                             placeholder="Email address"
-                            className="bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3 text-sm flex-1 focus:border-[var(--accent)] transition-colors"
+                            className="bg-[var(--primary)] border border-[var(--border)] rounded-lg px-4 py-3 text-sm flex-1 focus:border-[var(--accent)] transition-colors text-[var(--text)]"
                         />
                         <button type="submit" className="bg-[var(--accent)] text-black px-4 py-3 rounded-lg font-bold text-sm hover:bg-[var(--accent-2)] transition-colors">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

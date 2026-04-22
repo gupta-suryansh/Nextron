@@ -40,21 +40,21 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <div className="contact-content bg-[#111] border border-[var(--border)] rounded-3xl p-8 md:p-12">
+                <div className="contact-content bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8 md:p-12">
                     <form className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-sm font-bold mb-2 ml-1">NAME</label>
-                                <input type="text" className="w-full bg-[#0A0A0A] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors" placeholder="John Doe" />
+                                <input type="text" className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors" placeholder="John Doe" />
                             </div>
                             <div>
                                 <label className="block text-sm font-bold mb-2 ml-1">EMAIL</label>
-                                <input type="email" className="w-full bg-[#0A0A0A] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors" placeholder="john@example.com" />
+                                <input type="email" className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors" placeholder="john@example.com" />
                             </div>
                         </div>
                         <div>
                             <label className="block text-sm font-bold mb-2 ml-1">SUBJECT</label>
-                            <select className="w-full bg-[#0A0A0A] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors appearance-none">
+                            <select className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors appearance-none">
                                 <option>General Inquiry</option>
                                 <option>Order Support</option>
                                 <option>Product Information</option>
@@ -63,7 +63,7 @@ const Contact = () => {
                         </div>
                         <div>
                             <label className="block text-sm font-bold mb-2 ml-1">MESSAGE</label>
-                            <textarea rows="5" className="w-full bg-[#0A0A0A] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors" placeholder="How can we help you?"></textarea>
+                            <textarea rows="5" className="w-full bg-[var(--primary)] border border-[var(--border)] rounded-xl px-4 py-3 focus:border-[var(--accent)] transition-colors" placeholder="How can we help you?"></textarea>
                         </div>
                         <button type="submit" className="w-full btn-primary py-4 rounded-xl font-bold tracking-wide">
                             SEND MESSAGE

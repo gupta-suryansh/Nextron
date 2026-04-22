@@ -6,10 +6,22 @@
 
 :root {
   --primary: #0A0A0A;
+  --surface: #111111;
   --accent: #00FFD1;
   --accent-2: #FF3366;
   --text: #E5E5E5;
+  --text-muted: #9CA3AF;
   --border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --primary: #F5F5F5;
+  --surface: #FFFFFF;
+  --accent: #00A896;
+  --accent-2: #E63357;
+  --text: #111111;
+  --text-muted: #6B7280;
+  --border: rgba(0, 0, 0, 0.12);
 }
 
 body {
@@ -51,6 +63,10 @@ body {
 .navbar-blur {
   backdrop-filter: blur(12px);
   background: rgba(10, 10, 10, 0.9);
+}
+
+[data-theme="light"] .navbar-blur {
+  background: rgba(245, 245, 245, 0.92);
 }
 
 /* Animations */
@@ -239,6 +255,10 @@ body {
 .modal-backdrop {
   backdrop-filter: blur(8px);
   background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .modal-backdrop {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 /* Scrollbar */

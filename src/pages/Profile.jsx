@@ -35,7 +35,7 @@ const Profile = () => {
             <div className="max-w-5xl mx-auto">
 
                 {/* Header Card */}
-                <div className="relative rounded-3xl overflow-hidden mb-8 border border-[var(--border)] bg-[#111]">
+                <div className="relative rounded-3xl overflow-hidden mb-8 border border-[var(--border)] bg-[var(--surface)]">
                     {/* Glow background */}
                     <div className="absolute inset-0 opacity-20 pointer-events-none">
                         <div className="absolute top-0 left-1/3 w-96 h-40 bg-[var(--accent)] rounded-full blur-[80px]" />
@@ -87,7 +87,7 @@ const Profile = () => {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex gap-1 mb-8 bg-[#111] border border-[var(--border)] rounded-2xl p-1 w-fit">
+                <div className="flex gap-1 mb-8 bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-1 w-fit">
                     {tabs.map(tab => (
                         <button
                             key={tab.id}
@@ -107,7 +107,7 @@ const Profile = () => {
                 {activeTab === 'overview' && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Account Details */}
-                        <div className="bg-[#111] border border-[var(--border)] rounded-3xl p-8">
+                        <div className="bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8">
                             <h2 className="font-mono text-xs text-gray-500 mb-6 tracking-widest">ACCOUNT DETAILS</h2>
                             <div className="space-y-5">
                                 <div>
@@ -130,7 +130,7 @@ const Profile = () => {
                         </div>
 
                         {/* Quick Actions */}
-                        <div className="bg-[#111] border border-[var(--border)] rounded-3xl p-8">
+                        <div className="bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8">
                             <h2 className="font-mono text-xs text-gray-500 mb-6 tracking-widest">QUICK ACTIONS</h2>
                             <div className="space-y-3">
                                 <button
@@ -177,7 +177,7 @@ const Profile = () => {
                 )}
 
                 {activeTab === 'orders' && (
-                    <div className="bg-[#111] border border-[var(--border)] rounded-3xl p-8">
+                    <div className="bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8">
                         <h2 className="font-mono text-xs text-gray-500 mb-6 tracking-widest">ORDER HISTORY</h2>
                         {orders.length === 0 ? (
                             <div className="text-center py-16">
@@ -229,7 +229,7 @@ const Profile = () => {
                 )}
 
                 {activeTab === 'wishlist' && (
-                    <div className="bg-[#111] border border-[var(--border)] rounded-3xl p-8">
+                    <div className="bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8">
                         <h2 className="font-mono text-xs text-gray-500 mb-6 tracking-widest">MY WISHLIST</h2>
                         {wishlist.length === 0 ? (
                             <div className="text-center py-16">
