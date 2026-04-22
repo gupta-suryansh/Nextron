@@ -24,11 +24,7 @@ export const StoreProvider = ({ children }) => {
     const navigate = useNavigate();
 
     const navigateToCategory = (categoryId) => {
-        // Navigate to Products page with category filter pre-selected (if feasible) or just products page
-        // For now, let's just navigate to /products. Ideally we'd pass a state or query param.
-        // Since the requirement is just "navigateToCategory", let's make it go to /products
-        // and maybe we can use url params later. For now, simple navigation.
-        navigate('/products');
+        navigate(`/products?category=${categoryId}`);
     };
 
     const addToCart = (product) => {

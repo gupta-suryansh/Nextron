@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import { useStore } from '../context/StoreContext';
 import { CATEGORIES } from '../data';
 
 const Products = () => {
     const { products } = useStore();
-    const [filter, setFilter] = useState('all');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [filter, setFilter] = useState(searchParams.get('category') || 'all');
     const [sortBy, setSortBy] = useState('featured');
+
+    // Sync filter when URL query param changes (e.g. browser back/forward)
+    useEffect(() => {
+        const cat = searchParams.get('category');
+        setFilter(cat || 'all');
+    }, [searchParams]);
+
+    const handleFilterChange = (value) => {
+        setFilter(value);
+        if (value === 'all') {
+            setSearchParams({});
+        } else {
+            setSearchParams({ category: value });
+        }
+    };
 
     const filteredProducts = products
         .filter(p => filter === 'all' || p.category === filter)
@@ -22,10 +39,16 @@ const Products = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
                     <h2 className="text-5xl md:text-6xl font-black mb-4">
-                        ALL <span className="text-[var(--accent)]">PRODUCTS</span>
+                        {filter === 'all' ? (
+                            <>ALL <span className="text-[var(--accent)]">PRODUCTS</span></>
+                        ) : (
+                            <><span className="text-[var(--accent)]">{CATEGORIES.find(c => c.id === filter)?.name?.toUpperCase() ?? filter.toUpperCase()}</span></>
+                        )}
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl">
-                        Browse our complete collection of premium electronics
+                        {filter === 'all'
+                            ? 'Browse our complete collection of premium electronics'
+                            : `Showing all products in ${CATEGORIES.find(c => c.id === filter)?.name ?? filter}`}
                     </p>
                 </div>
 
@@ -34,7 +57,7 @@ const Products = () => {
                         <label className="block font-mono text-xs text-gray-500 mb-2">CATEGORY</label>
                         <select
                             value={filter}
-                            onChange={(e) => setFilter(e.target.value)}
+                            onChange={(e) => handleFilterChange(e.target.value)}
                             className="w-full bg-[#111] border border-[var(--border)] rounded-lg px-4 py-3 outline-none focus:border-[var(--accent)] transition-colors"
                         >
                             <option value="all">ALL CATEGORIES</option>
