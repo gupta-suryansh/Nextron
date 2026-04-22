@@ -19,10 +19,13 @@ const Login = () => {
             setError(domainCheck.error);
             return;
         }
-        if (login(email, password)) {
+        const result = login(email, password);
+        if (result.success) {
             navigate('/');
-        } else {
-            setError('Invalid credentials');
+        } else if (result.error === 'USER_NOT_FOUND') {
+            setError('No account found with this email. Please sign up first.');
+        } else if (result.error === 'WRONG_PASSWORD') {
+            setError('Incorrect password. Please try again.');
         }
     };
 

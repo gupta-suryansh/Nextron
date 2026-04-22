@@ -83,27 +83,54 @@ export const StoreProvider = ({ children }) => {
     const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    const login = (email, password, name) => {
-        // Mock login
+    // ─── Auth helpers ─────────────────────────────────────────────────────────
+    const USERS_KEY = 'nexus_users'; // { [email]: { name, password, role } }
+
+    const getUsers = () => JSON.parse(localStorage.getItem(USERS_KEY) || '{}');
+    const saveUsers = (users) => localStorage.setItem(USERS_KEY, JSON.stringify(users));
+
+    /**
+     * Register a new user.
+     * @returns {{ success: boolean, error?: 'EMAIL_EXISTS' }}
+     */
+    const signup = (email, password, name) => {
+        const users = getUsers();
+        if (users[email.toLowerCase()]) {
+            return { success: false, error: 'EMAIL_EXISTS' };
+        }
+        users[email.toLowerCase()] = { name, password, role: 'user' };
+        saveUsers(users);
+        // Auto-login after signup
+        setUser({ name, email: email.toLowerCase(), role: 'user' });
+        setIsAdminMode(false);
+        return { success: true };
+    };
+
+    /**
+     * Log in an existing user.
+     * @returns {{ success: boolean, error?: 'USER_NOT_FOUND' | 'WRONG_PASSWORD' }}
+     */
+    const login = (email, password) => {
+        // Hardcoded admin account
         if (email === 'admin@nexus.com' && password === 'admin') {
             setUser({ name: 'Admin User', email, role: 'admin' });
             setIsAdminMode(true);
-            return true;
-        } else if (email && password) {
-            // If a name is provided (signup flow), persist it so login can recall it
-            if (name) {
-                const stored = JSON.parse(localStorage.getItem('nexus_users') || '{}');
-                stored[email] = name;
-                localStorage.setItem('nexus_users', JSON.stringify(stored));
-            }
-            // Look up the stored name for this email, fall back to email prefix
-            const stored = JSON.parse(localStorage.getItem('nexus_users') || '{}');
-            const resolvedName = name || stored[email] || email.split('@')[0];
-            setUser({ name: resolvedName, email, role: 'user' });
-            setIsAdminMode(false);
-            return true;
+            return { success: true };
         }
-        return false;
+
+        const users = getUsers();
+        const record = users[email.toLowerCase()];
+
+        if (!record) {
+            return { success: false, error: 'USER_NOT_FOUND' };
+        }
+        if (record.password !== password) {
+            return { success: false, error: 'WRONG_PASSWORD' };
+        }
+
+        setUser({ name: record.name, email: email.toLowerCase(), role: record.role || 'user' });
+        setIsAdminMode(false);
+        return { success: true };
     };
 
     const logout = () => {
@@ -119,7 +146,7 @@ export const StoreProvider = ({ children }) => {
             setProducts, addToCart, removeFromCart, updateQuantity,
             addToWishlist, removeFromWishlist, setIsCartOpen, setIsWishlistOpen,
             setIsCheckoutOpen, setIsAdminMode, cartTotal, cartCount, placeOrder,
-            login, logout, navigateToCategory
+            login, logout, signup, navigateToCategory
         }}>
             {children}
         </StoreContext.Provider>

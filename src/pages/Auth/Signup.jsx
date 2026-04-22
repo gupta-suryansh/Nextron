@@ -5,18 +5,22 @@ import { validateEmailDomain } from '../../utils/emailValidator';
 
 const Signup = () => {
     const [formData, setFormData] = useState({ name: '', email: '', password: '', confirmPassword: '' });
-    const { login } = useStore();
+    const { signup } = useStore();
     const navigate = useNavigate();
     const [error, setError] = useState('');
-
 
     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setError('');
+
         if (formData.password !== formData.confirmPassword) {
-            setError('Passwords do not match');
+            setError('Passwords do not match.');
+            return;
+        }
+        if (formData.password.length < 6) {
+            setError('Password must be at least 6 characters.');
             return;
         }
         const domainCheck = validateEmailDomain(formData.email);
@@ -24,8 +28,12 @@ const Signup = () => {
             setError(domainCheck.error);
             return;
         }
-        if (login(formData.email, formData.password, formData.name)) {
+
+        const result = signup(formData.email, formData.password, formData.name);
+        if (result.success) {
             navigate('/');
+        } else if (result.error === 'EMAIL_EXISTS') {
+            setError('An account with this email already exists. Please log in instead.');
         }
     };
 
