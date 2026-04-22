@@ -73,14 +73,23 @@ export const StoreProvider = ({ children }) => {
     const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    const login = (email, password) => {
+    const login = (email, password, name) => {
         // Mock login
         if (email === 'admin@nexus.com' && password === 'admin') {
             setUser({ name: 'Admin User', email, role: 'admin' });
             setIsAdminMode(true);
             return true;
         } else if (email && password) {
-            setUser({ name: 'John Doe', email, role: 'user' });
+            // If a name is provided (signup flow), persist it so login can recall it
+            if (name) {
+                const stored = JSON.parse(localStorage.getItem('nexus_users') || '{}');
+                stored[email] = name;
+                localStorage.setItem('nexus_users', JSON.stringify(stored));
+            }
+            // Look up the stored name for this email, fall back to email prefix
+            const stored = JSON.parse(localStorage.getItem('nexus_users') || '{}');
+            const resolvedName = name || stored[email] || email.split('@')[0];
+            setUser({ name: resolvedName, email, role: 'user' });
             setIsAdminMode(false);
             return true;
         }

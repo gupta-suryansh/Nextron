@@ -17,7 +17,7 @@ const Signup = () => {
             return;
         }
         // Mock signup - just logging in
-        if (login(formData.email, formData.password)) {
+        if (login(formData.email, formData.password, formData.name)) {
             navigate('/');
         }
     };
